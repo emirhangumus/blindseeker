@@ -1,0 +1,19 @@
+services:
+  hide_and_seek_db_container:
+    container_name: hide_and_seek_db_container
+    image: postgres
+    volumes:
+      - hide_and_seek:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+  hide_and_seek_pgadmin_container:
+    container_name: hide_and_seek_pgadmin_container
+    image: dpage/pgadmin4
+    ports:
+      - "5555:80"
+    env_file:
+      - .env
+volumes:
+ hide_and_seek:
